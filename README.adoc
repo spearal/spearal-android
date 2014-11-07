@@ -1,0 +1,51 @@
+= Spearal Android
+
+== What is Spearal?
+
+Spearal is a compact binary format for exchanging arbitrary complex data between various endpoints such as Java EE, JavaScript / HTML, Android and iOS applications.
+
+Spearal-Android is an extension of Spearal-Java which implements the necessary integration classes to use Spearal in Android applications.
+
+== How to get and build the project?
+
+First, you need to get, build and install Spearal-Java:
+
+[source,bash]
+----
+$ git clone https://github.com/spearal/spearal-java.git
+$ cd spearal-java
+$ ./gradlew install
+----
+
+Then, you can build Spearal Android:
+
+[source,bash]
+----
+$ cd ..
+$ git clone https://github.com/spearal/spearal-android.git
+$ cd spearal-android
+$ ./gradlew build
+----
+
+The library can then be found in the `build/libs` directory.
+
+== How to use the library?
+
+Spearal Android provides an extension that uses the https://code.google.com/p/dexmaker[DexMaker] library to build class proxies for partial objects.
+
+To use the library, you need to add the dependency on dexmaker to your project, for example in the `build.gradle` file (Android Studio):
+
+----
+dependencies {
+    ...
+    compile 'com.google.dexmaker:dexmaker:1.1'
+}
+----
+
+Then you can configure Spearal to use it with:
+
+[source,java]
+----
+SpearalFactory spearalFactory = new DefaultSpearalFactory();
+spearalFactory.configure(new DexMakerPartialObjectFactory());
+----
