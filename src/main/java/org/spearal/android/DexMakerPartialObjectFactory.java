@@ -14,8 +14,6 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
- * @author Franck WOLFF
  */
 
 package org.spearal.android;
@@ -34,7 +32,9 @@ import org.spearal.impl.instantiator.ProxyInstantiator;
 
 import com.google.dexmaker.stock.ProxyBuilder;
 
-
+/**
+ * @author William DRAI
+ */
 public class DexMakerPartialObjectFactory implements PartialObjectFactory {
 
 	@Override
