@@ -33,11 +33,13 @@ The library can then be found in the `build/libs` directory.
 
 Spearal Android provides an extension that uses the https://code.google.com/p/dexmaker[DexMaker] library to build class proxies for partial objects.
 
-To use the library, you need to add the dependency on dexmaker to your project, for example in the `build.gradle` file (Android Studio):
+To use the library, you need to add the dependencies on Spearal-Android and on DexMaker to your project, for example in the `build.gradle` file (Android Studio):
 
 ----
 dependencies {
     ...
+    compile 'org.spearal:spearal-java:0.2.0'
+    compile 'org.spearal:spearal-android:0.2.0'
     compile 'com.google.dexmaker:dexmaker:1.1'
 }
 ----
