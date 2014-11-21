@@ -6,6 +6,34 @@ Spearal is a compact binary format for exchanging arbitrary complex data between
 
 Spearal-Android is an extension of Spearal-Java which implements the necessary integration classes to use Spearal in Android applications.
 
+
+== How to use the library?
+
+Spearal Android provides an extension that uses the https://code.google.com/p/dexmaker[DexMaker] library to build class proxies for partial objects.
+
+To use the library, you need to add the dependencies on Spearal-Android and on DexMaker to your project, for example in the `build.gradle` file (Android Studio):
+
+----
+dependencies {
+    ...
+    compile 'org.spearal:spearal-java:${spearalVersion}'
+    compile 'org.spearal:spearal-android:${spearalVersion}'
+    compile 'com.google.dexmaker:dexmaker:1.1'
+}
+----
+
+In any other case, just download the https://github.com/spearal/spearal-java/releases[Spearal-Java] and https://github.com/spearal/spearal-android/releases[Spearal-Android] jars from github and add them to your classpath.
+
+
+Then you can configure Spearal to use it with:
+
+[source,java]
+----
+SpearalFactory spearalFactory = new DefaultSpearalFactory();
+spearalFactory.configure(new DexMakerPartialObjectFactory());
+----
+
+
 == How to get and build the project?
 
 First, you need to get, build and install Spearal-Java:
@@ -28,26 +56,3 @@ $ ./gradlew install
 ----
 
 The library can then be found in the `build/libs` directory.
-
-== How to use the library?
-
-Spearal Android provides an extension that uses the https://code.google.com/p/dexmaker[DexMaker] library to build class proxies for partial objects.
-
-To use the library, you need to add the dependencies on Spearal-Android and on DexMaker to your project, for example in the `build.gradle` file (Android Studio):
-
-----
-dependencies {
-    ...
-    compile 'org.spearal:spearal-java:0.2.0'
-    compile 'org.spearal:spearal-android:0.2.0'
-    compile 'com.google.dexmaker:dexmaker:1.1'
-}
-----
-
-Then you can configure Spearal to use it with:
-
-[source,java]
-----
-SpearalFactory spearalFactory = new DefaultSpearalFactory();
-spearalFactory.configure(new DexMakerPartialObjectFactory());
-----
